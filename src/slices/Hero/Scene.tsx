@@ -12,9 +12,7 @@ import { useStore } from "@/hooks/useStore";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-type Props = {};
-
-const Scene = (props: Props) => {
+const Scene = () => {
   const isReady = useStore((state) => state.isReady);
 
   const can1Ref = useRef<Group>(null);

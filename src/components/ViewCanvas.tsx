@@ -11,9 +11,7 @@ const Loader = dynamic(
   { ssr: false },
 );
 
-type Props = {};
-
-const ViewCanvas = (props: Props) => {
+const ViewCanvas = () => {
   return (
     <>
       <Canvas
