@@ -1,14 +1,12 @@
 import clsx from "clsx";
-import { ElementType, ReactNode } from "react";
+import { ReactNode } from "react";
 
 type BoundedProps = {
-  as?: ElementType;
   className?: string;
   children: ReactNode;
 };
 
 export const Bounded = ({
-  as: Comp = "section",
   className,
   children,
   ...restProps
