@@ -1,6 +1,6 @@
 "use client";
 
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 
 import FloatingCan from "@/components/FloatingCan";
 import { useRef } from "react";
