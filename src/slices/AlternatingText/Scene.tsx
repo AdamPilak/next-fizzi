@@ -13,7 +13,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Scene = () => {
-  const isDesktop = useMediaQuery("(min-width: 768px)", true);
+  // const isDesktop = useMediaQuery("(min-width: 768px)", true);
 
   const canRef = useRef<Group>(null);
 
@@ -43,19 +43,19 @@ const Scene = () => {
 
         const isOdd = index % 2 !== 0;
 
-        const xPosition = isDesktop ? (isOdd ? "-1" : "1") : 0;
-        const yRotation = isDesktop ? (isOdd ? ".4" : "-.4") : 0;
+        // const xPosition = isDesktop ? (isOdd ? "-1" : "1") : 0;
+        // const yRotation = isDesktop ? (isOdd ? ".4" : "-.4") : 0;
 
         scrollTl
           .to(canRef.current.position, {
-            x: xPosition,
+            x: isOdd ? "-.8" : ".8",
             ease: "circ.inOut",
             delay: 0.5,
           })
           .to(
             canRef.current.rotation,
             {
-              y: yRotation,
+              y: isOdd ? ".4" : "-.4",
               ease: "back.inOut",
             },
             "<",
@@ -65,16 +65,12 @@ const Scene = () => {
           });
       });
     },
-    { dependencies: [isDesktop] },
+    // { dependencies: [isDesktop] },
   );
 
   return (
-    <group
-      ref={canRef}
-      position-x={isDesktop ? 1 : 0}
-      rotation-y={isDesktop ? -0.3 : 0}
-    >
-      <FloatingCan flavor="strawberryLemonade" />
+    <group ref={canRef} position-x={0.8} rotation-y={-0.3}>
+      <FloatingCan flavor="strawberryLemonade" scale={1.6} />
       <Environment files="/hdr/lobby.hdr" environmentIntensity={1.5} />
     </group>
   );
